@@ -5,6 +5,12 @@ So, if you are new to react environment please visit https://reactjs.org/ and fo
 
 Here is the working version of my app : https://condescending-knuth-1bb4d0.netlify.com/
 
+
+##Instructions
+1. git clone https://github.com/miteshkamat27/react-material-kit.git
+2. npm i or npm install
+3. npm start
+
 ## Available Scripts
 
 In the project directory, you can run:
