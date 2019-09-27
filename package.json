@@ -10,12 +10,6 @@
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2"
   },
-  "author": "Mitesh Kamat",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/miteshkamat27/react-material-kit.git"
-  },
-  "homepage": "https://github.com/miteshkamat27/react-material-kit/blob/master/README.md",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
