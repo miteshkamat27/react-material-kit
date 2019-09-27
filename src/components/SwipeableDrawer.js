@@ -56,14 +56,9 @@ export default function SwipeableTemporaryDrawer() {
         {
             Object.entries(drawerLinks).map(([key,text]) => {
                 return (
-                <ListItem button key={key}>
-                  <ListItemText >
-                    <NavLink activeClassName="active" to={key} style={{ textDecoration: 'none'}}>
-                        {text}
-                    </NavLink>
-                  </ListItemText>
+                <ListItem button key={key} component={NavLink} to={key}>
+                  <ListItemText>{text}</ListItemText>
                 </ListItem>
-                
                 )
             })
         }
