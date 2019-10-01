@@ -42,7 +42,8 @@ export default function SwipeableTemporaryDrawer() {
   const drawerLinks = {
       '/': 'Home',
       '/about': 'About',
-      '/contact': 'Contact'
+      '/contact': 'Contact',
+      '/dashboard': 'Dashboard'
   };
 
   const sideList = side => (

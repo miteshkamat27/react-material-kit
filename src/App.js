@@ -13,6 +13,7 @@ import Nearby from './pages/Nearby';
 import Offers from './pages/Offers';
 import Hidden from '@material-ui/core/Hidden';
 import Box from '@material-ui/core/Box';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
           <Route path="/favorites" component={Favorites} /> 
           <Route path="/recents" component={Recents} /> 
           <Route path="/nearby" component={Nearby} /> 
-          <Route path="/offers" component={Offers} /> 
+          <Route path="/offers" component={Offers} />
+          <Route path="/dashboard" component={Dashboard} /> 
         </Box>
       </div>
       <Hidden smUp>
