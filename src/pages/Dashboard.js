@@ -11,6 +11,10 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
 
 export default class Dashboard extends React.Component {
     state = {
@@ -23,13 +27,19 @@ export default class Dashboard extends React.Component {
             }
         ]
         },
-        flag: false
+        flag: false,
+        chartType: 'Line'
     }
     handleChange = (event) => {
         this.setState({
             flag: !this.state.flag
         })
     }
+    handleSelectChange = event => {
+        this.setState({
+            chartType: ''+event.target.value
+        })
+      }
     render(){
         return(
             <div>
@@ -45,16 +55,34 @@ export default class Dashboard extends React.Component {
                         <CardContent>
                             { this.state.flag ?
                                 (<Grid component="label" container alignItems="center" spacing={3}>
-                                    <Grid item>
-                                        <LineGraph labels={this.state.data.labels} data={this.state.data.datasets[0].data} />
+                                    <Grid item xs={12}>
+                                        <FormControl style={{minWidth: 100}}>
+                                            <InputLabel htmlFor="type-simple">Chart Type</InputLabel>
+                                            <Select 
+                                            value={this.state.chartType}
+                                            onChange={this.handleSelectChange}
+                                            inputProps={{
+                                                name: 'Type',
+                                                id: 'type-simple',
+                                            }}
+                                            >
+                                            <MenuItem value="Line">Line</MenuItem>
+                                            <MenuItem value="Pie">Pie</MenuItem>
+                                            </Select>
+                                        </FormControl>
                                     </Grid>
-                                    <Grid item>
+                                    
+                                    { this.state.chartType === 'Line' ?
+                                    (<Grid item>
+                                        <LineGraph labels={this.state.data.labels} data={this.state.data.datasets[0].data} />
+                                    </Grid>) :
+                                    (<Grid item xs={12}>
                                         <DoughnutChart
                                             data={this.state.data.datasets[0].data}
                                             title={this.state.data.labels}
                                             colors={['#3e517a', '#b08ea2', '#BBB6DF']}
                                         />
-                                    </Grid>
+                                    </Grid>)}
                                 </Grid>)
                                 : 
                                 (<Grid component="label" container alignItems="center" spacing={3} style={{backgroundColor: '#ccc'}}> 
@@ -83,5 +111,4 @@ export default class Dashboard extends React.Component {
             </div>
         )
     }
-    
 }
